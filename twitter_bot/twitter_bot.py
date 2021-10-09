@@ -19,9 +19,14 @@ except:
 
 days = 2994
 while True:
-    api.update_status(f"It has been {days} days since the release of GTA 5, still no release of GTA 6...\n#GTA6 #GTA #GTA5")
-    days += 1
-    sleep(86400)
-    print('Tweet successful')
+    try:
+        api.update_status(f"It has been {days} days since the release of GTA 5, still no release of GTA 6...\n#GTA6 #GTA #GTA5")
+        days += 1
+        print('Tweet successful')
+        sleep(86400)
+    except tweepy.TweepError as e:
+        print(e.reason)
+        sleep(60)
+
 
 
